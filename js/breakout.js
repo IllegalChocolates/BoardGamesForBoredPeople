@@ -4,7 +4,12 @@ var bricks;
 var newBrick;
 var brickInfo;
 var scoreText;
-var score = 0;
+
+var x = $.cookie('score');
+var score;
+
+if (x === undefined) score = 0; else score = x;
+
 var lives = 3;
 var livesText;
 var lifeLostText;
@@ -54,7 +59,7 @@ function create() {
 
     textStyle = { font: '18px Arial', fill: '#0095DD' };
 
-    scoreText = game.add.text(5, 5, 'Points: 0', textStyle);
+    scoreText = game.add.text(5, 5, 'Points: ' + score, textStyle);
 
     livesText = game.add.text(game.world.width-5, 5, 'Lives: '+lives, textStyle);
     livesText.anchor.set(1,0);
@@ -116,8 +121,11 @@ function ballHitBrick(ball, brick) {
     }, this);
     killTween.start();
 
-    score += 10;
-    scoreText.setText('Points: '+score);
+    score = Number(score) + 10;
+    scoreText.setText('Points: '+ score);
+
+    $.cookie('score', score);
+
     if(score === brickInfo.count.row*brickInfo.count.col*10) {
         alert('You won the game, congratulations!');
         location.reload();
