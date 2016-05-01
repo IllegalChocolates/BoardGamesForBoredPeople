@@ -5,6 +5,9 @@ var newBrick;
 var brickInfo;
 var scoreText;
 var score = 0;
+var lives = 3;
+var livesText;
+var lifeLostText;
 
 var game = new Phaser.Game(screen.availWidth, screen.availHeight * 0.85, Phaser.AUTO, null, {
     preload: preload, create: create, update: update
@@ -34,10 +37,7 @@ function create() {
     ball.body.bounce.set(1);
 
     ball.checkWorldBounds = true;
-    ball.events.onOutOfBounds.add(function(){
-        alert('Game over!');
-        location.reload();
-    }, this);
+    ball.events.onOutOfBounds.add(ballLeaveScreen, this);
 
     paddle = game.add.sprite(game.world.width*0.5, game.world.height-5, 'paddle');
     paddle.anchor.set(0.5,1);
@@ -45,7 +45,16 @@ function create() {
     paddle.body.immovable = true;
 
     initBricks();
-    scoreText = game.add.text(5, 5, 'Points: 0', { font: '18px Arial', fill: '#0095DD' });
+
+    textStyle = { font: '18px Arial', fill: '#0095DD' };
+
+    scoreText = game.add.text(5, 5, 'Points: 0', textStyle);
+
+    livesText = game.add.text(game.world.width-5, 5, 'Lives: '+lives, textStyle);
+    livesText.anchor.set(1,0);
+    lifeLostText = game.add.text(game.world.width*0.5, game.world.height*0.5, 'Life lost, click to continue', textStyle);
+    lifeLostText.anchor.set(0.5);
+    lifeLostText.visible = false;
 }
 function update() {
     game.physics.arcade.collide(ball, paddle);
@@ -88,6 +97,24 @@ function ballHitBrick(ball, brick) {
     scoreText.setText('Points: '+score);
     if(score === brickInfo.count.row*brickInfo.count.col*10) {
         alert('You won the game, congratulations!');
+        location.reload();
+    }
+}
+
+function ballLeaveScreen() {
+    lives--;
+    if(lives) {
+        livesText.setText('Lives: '+lives);
+        lifeLostText.visible = true;
+        ball.reset(game.world.width*0.5, game.world.height-25);
+        paddle.reset(game.world.width*0.5, game.world.height-5);
+        game.input.onDown.addOnce(function(){
+            lifeLostText.visible = false;
+            ball.body.velocity.set(150, -150);
+        }, this);
+    }
+    else {
+        alert('You lost, game over!');
         location.reload();
     }
 }
