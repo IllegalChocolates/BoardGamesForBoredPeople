@@ -1,0 +1,20 @@
+#top, #mid {
+    border-bottom: solid;
+    border-bottom-width: 6px;
+    
+}
+
+#bot, #mid {
+    border-top: solid;
+    border-top-width: 6px;
+}
+
+.left, .middle {
+    border-right: solid;
+    border-right-width: 6px;
+}
+
+.right, .middle {
+    border-left: solid;
+    border-left-width: 6px;
+}
