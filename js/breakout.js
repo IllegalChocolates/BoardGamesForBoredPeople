@@ -18,6 +18,7 @@ function preload() {
 }
 function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
+    game.physics.arcade.checkCollision.down = false;
 
     ball = game.add.sprite(game.world.width*0.5, game.world.height-25, 'ball');
     ball.anchor.set(0.5);
@@ -25,6 +26,12 @@ function create() {
     ball.body.velocity.set(150, -150);
     ball.body.collideWorldBounds = true;
     ball.body.bounce.set(1);
+
+    ball.checkWorldBounds = true;
+    ball.events.onOutOfBounds.add(function(){
+        alert('Game over!');
+        location.reload();
+    }, this);
 
     paddle = game.add.sprite(game.world.width*0.5, game.world.height-5, 'paddle');
     paddle.anchor.set(0.5,1);
