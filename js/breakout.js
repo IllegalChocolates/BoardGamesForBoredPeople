@@ -3,6 +3,8 @@ var paddle;
 var bricks;
 var newBrick;
 var brickInfo;
+var scoreText;
+var score = 0;
 
 var game = new Phaser.Game(screen.availWidth, screen.availHeight * 0.85, Phaser.AUTO, null, {
     preload: preload, create: create, update: update
@@ -43,6 +45,7 @@ function create() {
     paddle.body.immovable = true;
 
     initBricks();
+    scoreText = game.add.text(5, 5, 'Points: 0', { font: '18px Arial', fill: '#0095DD' });
 }
 function update() {
     game.physics.arcade.collide(ball, paddle);
@@ -81,4 +84,10 @@ function initBricks() {
 
 function ballHitBrick(ball, brick) {
     brick.kill();
+    score += 10;
+    scoreText.setText('Points: '+score);
+    if(score === brickInfo.count.row*brickInfo.count.col*10) {
+        alert('You won the game, congratulations!');
+        location.reload();
+    }
 }
