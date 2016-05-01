@@ -1,0 +1,30 @@
+#top, #mid {
+    border-bottom: solid 6px;
+    height: 100px;
+}
+
+#bot, #mid {
+    border-top: solid 6px;
+    height: 100px;
+
+}
+
+.left, .middle {
+    border-right: solid 6px;
+}
+
+.right, .middle {
+    border-left: solid 6px;
+}
+
+table {
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    height: 100px;
+}
