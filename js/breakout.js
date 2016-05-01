@@ -43,7 +43,7 @@ function create() {
     ball.animations.add('wobble', [0,1,0,2,0,1,0,2,0], 24);
     ball.anchor.set(0.5);
     game.physics.enable(ball, Phaser.Physics.ARCADE);
-    ball.body.velocity.set(150, -150);
+    //ball.body.velocity.set(150, -150);
     ball.body.collideWorldBounds = true;
     ball.body.bounce.set(1);
 
