@@ -3,3 +3,35 @@
     margin: auto;
     text-align: center;
 }
+
+#game-wrapper {
+    width: 80%;
+    margin: auto;
+}
+
+.box {
+    background: cornflowerblue;
+    border: solid;
+    width: 65px;
+    height: 65px;
+    padding: 0;
+    float: left;
+}
+
+.small-box {
+    position: relative;
+    top: -5px;
+    left: -5px;
+    margin: 0;
+    padding: 0;
+
+    height: 10px;
+    width: 10px;
+
+    background: lightgrey;
+    border: solid 1px;
+}
+
+.small-box:hover {
+    background: red !important;
+}
