@@ -11,45 +11,58 @@
     <link rel="stylesheet" href="../css/tictactoe.css">
 </head>
 <body>
+<header class="page-header text-center">
+    <h1>Dots and Boxes</h1>
+</header>
+<br>
     <a href="javascript:window.history.back()">Back :)</a>
 
     <table>
         <tr id="top">
             <td class="left">
-                <button type="button" class="btn btn-default">Default</button>
+                <button id="1" type="button" class="btn btn-default" onclick="buttonClick(1)"></button>
             </td>
             <td class="middle">
-                <button type="button" class="btn btn-default">Default</button>
+                <button id="2" type="button" class="btn btn-default" onclick="buttonClick(2)"></button>
             </td>
             <td class="right">
-                <button type="button" class="btn btn-default">Default</button>
+                <button id="3" type="button" class="btn btn-default" onclick="buttonClick(3)"></button>
             </td>
         </tr>
 
         <tr id="mid">
             <td class="left">
-                <button type="button" class="btn btn-default">Default</button>
+                <button id="4" type="button" class="btn btn-default" onclick="buttonClick(4)"></button>
             </td>
             <td class="middle">
-                <button type="button" class="btn btn-default">Default</button>
+                <button id="5" type="button" class="btn btn-default" onclick="buttonClick(5)"></button>
             </td>
             <td class="right">
-                <button type="button" class="btn btn-default">Default</button>
+                <button id="6" type="button" class="btn btn-default" onclick="buttonClick(6)"></button>
             </td>
         </tr>
 
         <tr id="bot">
             <td class="left">
-                <button type="button" class="btn btn-default">Default</button>
+                <button id="7" type="button" class="btn btn-default" onclick="buttonClick(7)"></button>
             </td>
             <td class="middle">
-                <button type="button" class="btn btn-default">Default</button>
+                <button id="8" type="button" class="btn btn-default" onclick="buttonClick(8)"></button>
             </td>
             <td class="right">
-                <button type="button" class="btn btn-default">Default</button>
+                <button id="9" type="button" class="btn btn-default" onclick="buttonClick(9)"></button>
 
             </td>
         </tr>
     </table>
+
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- Bootstrap Javascript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script src="../js/tictactoe.js"></script>
 </body>
 </html>
