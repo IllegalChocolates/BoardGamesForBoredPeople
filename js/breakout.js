@@ -63,7 +63,7 @@ function create() {
 
     livesText = game.add.text(game.world.width-5, 5, 'Lives: '+lives, textStyle);
     livesText.anchor.set(1,0);
-    lifeLostText = game.add.text(game.world.width*0.5, game.world.height*0.5, 'Life lost, click to continue', textStyle);
+    lifeLostText = game.add.text(game.world.width*0.5, game.world.height*0.5, 'You lost a life, click to continue :(', textStyle);
     lifeLostText.anchor.set(0.5);
     lifeLostText.visible = false;
 
@@ -81,18 +81,21 @@ function update() {
 }
 
 function initBricks() {
+    var randRows = Math.floor((Math.random() * 5) + 2);
+    var randCols = Math.floor((Math.random() * 7) + 3);
+    var randPadd = Math.floor((Math.random() * 50) + 10);
     brickInfo = {
         width: 50,
         height: 20,
         count: {
-            row: 3,
-            col: 7
+            row: randRows, //3
+            col: randCols  //7
         },
         offset: {
             top: 50,
-            left: 60
+            left: 120
         },
-        padding: 10
+        padding: randPadd //10
     };
     bricks = game.add.group();
     for(c=0; c<brickInfo.count.col; c++) {
