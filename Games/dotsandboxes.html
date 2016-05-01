@@ -3,10 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>Dots and Boxes</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+
+    <!-- custom styling -->
+    <link rel="stylesheet" href="../css/dotsandboxes.css">
 </head>
 <body>
 
+<header class="page-header text-center">
+    <h1>Dots and Boxes</h1>
+</header>
+<br>
+<div class="container center-block form-inline" role="form">
+    <div class="form-group">
+        <label for="rows" class="control-label">Rows</label>
+        <select name="rows" id="rows" class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="cols" class="control-label">Columns</label>
+        <select name="cols" id="cols" class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    &nbsp;
+    <div class="form-group">
+        <button class="btn btn-primary" id="draw-btn">Draw the Game</button>
+    </div>
+</div>
+<br>
+
+<div id="game-wrapper"></div>
+
 <a href="javascript:window.history.back()">Back :)</a>
 
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- Bootstrap Javascript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script src="../js/dotsandboxes.js"></script>
 </body>
 </html>
